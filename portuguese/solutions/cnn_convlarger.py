@@ -6,7 +6,7 @@ def build_conv_larger():
     net['pool1'] = MaxPool2DLayer(net['conv1'], 2)
     
     net['conv2'] = Conv2DLayer(net['pool1'], filter_size=5, num_filters=16)
-    net['pool2'] = MaxPool2DLayer(net['conv1'], 3)
+    net['pool2'] = MaxPool2DLayer(net['conv2'], 3)
     
     net['hid'] = DenseLayer(net['pool2'], 100)
     
