@@ -1,5 +1,17 @@
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
 
+def plot_train_curves(train_curves):
+    plt.figure()
+    cost_history, acc_history, val_cost_history, val_acc_history = train_curves
+    plt.plot(cost_history, 'b--', label='Treinamento')
+    plt.plot(val_cost_history, 'r-', label='Validacao')
+    plt.xlabel('Numero de iteracoes', fontsize=15)
+    plt.ylabel('Custo', fontsize=15)
+    plt.legend()
+    print "Melhor performance validacao: %.2f%%" % (np.max(val_acc_history) * 100)
+    
 def iterate_minibatches(x, y, batch_size):
     for batch_start in xrange(0, len(x), batch_size):
         yield x[batch_start:batch_start+batch_size], y[batch_start:batch_start+batch_size]
