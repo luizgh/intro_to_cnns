@@ -1,5 +1,7 @@
 def train(train_fn, val_fn, x_train, y_train, x_val, y_val, max_iterations, epsilon):
-    for i in range(maxIterations):
+    cost_history = []  
+    val_cost_history = []
+    for i in range(max_iterations):
         cost, acc = train_fn(x_train,y_train)
         cost_history.append(cost)
 
