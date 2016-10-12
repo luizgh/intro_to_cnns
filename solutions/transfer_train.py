@@ -23,5 +23,5 @@ def compile_train_function(net, lr, w_decay):
     updates = lasagne.updates.sgd(loss, params, lr)
 
     train_fn = theano.function([input_var, output_var], [loss, acc], updates=updates)
-    val_fn = theano.function([input_var, output_var], [test_loss, test_acc])
-    return train_fn, val_fn
+    valid_fn = theano.function([input_var, output_var], [test_loss, test_acc])
+    return train_fn, valid_fn

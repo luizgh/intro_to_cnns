@@ -17,7 +17,7 @@ def iterate_minibatches(x, y, batch_size):
         yield x[batch_start:batch_start+batch_size], y[batch_start:batch_start+batch_size]
 
 
-def train_minibatch(train_fn, val_fn, train_set, valid_set, epochs, batch_size):
+def train_minibatch(train_fn, valid_fn, train_set, valid_set, epochs, batch_size):
     x_train, y_train = train_set
     x_valid, y_valid = valid_set
     
@@ -46,7 +46,7 @@ def train_minibatch(train_fn, val_fn, train_set, valid_set, epochs, batch_size):
         val_epoch_acc = 0
         val_batches = 0
         for x_batch, y_batch in iterate_minibatches(x_valid, y_valid, batch_size):
-            val_cost, val_acc = val_fn(x_batch, y_batch)
+            val_cost, val_acc = valid_fn(x_batch, y_batch)
             val_epoch_cost += val_cost
             val_epoch_acc += val_acc
             val_batches += 1
