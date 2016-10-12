@@ -22,7 +22,9 @@ def compile_train_function_somelayers(net, lr, w_decay, layers_to_train):
     params = []
     for l in layers_to_train:
         params += l.get_params(trainable=True)
-        
+
+    print "Lista de parametros a serem atualizados: ", params
+       
     updates = lasagne.updates.sgd(loss, params, lr)
 
     train_fn = theano.function([input_var, output_var], [loss, acc], updates=updates)

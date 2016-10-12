@@ -5,6 +5,8 @@ def compile_train_function(net, lr, w_decay):
     probs = lasagne.layers.get_output(net['out'], inputs=input_var)
     loss = lasagne.objectives.categorical_crossentropy(probs, output_var)
     loss = loss.mean()
+
+    # Regularizacao L2:
     loss += w_decay * regularize_layer_params(net['out'], l2)
     
     y_pred = T.argmax(probs, axis=1)
