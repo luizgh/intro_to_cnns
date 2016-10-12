@@ -16,9 +16,10 @@ from lasagne.layers import Conv2DLayer as ConvLayer
 from lasagne.layers import MaxPool2DLayer as PoolLayer
 from lasagne.nonlinearities import softmax
 
+from collections import OrderedDict
 
 def build_model():
-    net = {}
+    net = OrderedDict()
 
     net['input'] = InputLayer((None, 3, 224, 224))
     net['conv1'] = ConvLayer(net['input'],
