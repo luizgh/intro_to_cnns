@@ -4,4 +4,6 @@ caltech_5classes.npz
 mnist.pkl.gz
 vgg_cnn_s.pkl
 vgg_cnn_s.py
+caltech_samples
+X.npy
 
